@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Atelier | Sculptural Furniture & Objects</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for High-End Serif & Clean Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Jost', 'sans-serif'],
+                    },
+                    colors: {
+                        luxuryDark: '#1a1a1a',
+                        luxuryGray: '#f4f4f4',
+                        luxuryBorder: '#e5e5e5',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Jost', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.12em;
+        }
+        /* Smooth transitions for interactive elements */
+        .transition-all-custom {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-luxuryDark selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-[#111] text-white text-[11px] tracking-[0.2em] py-2 text-center font-sans font-light">
+        COMPLIMENTARY GLOBAL SHIPPING ON ORDERS OVER $2,000
+    </div>
+
+    <!-- Main Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-luxuryBorder">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- Mobile Menu & Left Nav -->
+            <div class="flex items-center space-x-6 lg:w-1/3">
+                <button id="mobile-menu-btn" class="lg:hidden text-luxuryDark text-xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <nav class="hidden lg:flex items-center space-x-8 text-xs tracking-[0.15em] font-medium text-luxuryDark">
+                    <a href="#collections" class="hover:opacity-60 transition-opacity">COLLECTIONS</a>
+                    <a href="#about" class="hover:opacity-60 transition-opacity">ABOUT</a>
+                    <a href="#journal" class="hover:opacity-60 transition-opacity">JOURNAL</a>
+                </nav>
+            </div>
+
+            <!-- Centered Brand Logo -->
+            <div class="text-center lg:w-1/3">
+                <a href="#" class="inline-block">
+                    <h1 class="text-xl lg:text-2xl font-serif font-semibold tracking-[0.25em] text-luxuryDark">AURA</h1>
+                    <span class="text-[9px] tracking-[0.4em] text-neutral-500 font-sans block -mt-1">ATELIER</span>
+                </a>
+            </div>
+
+            <!-- Right Icons -->
+            <div class="flex items-center justify-end space-x-6 lg:w-1/3 text-sm text-luxuryDark">
+                <button aria-label="Search" class="hover:opacity-60 transition-opacity hidden sm:block">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button aria-label="Account" class="hover:opacity-60 transition-opacity hidden sm:block" onclick="openModal('Account Portal')">
+                    <i class="fa-regular fa-user"></i>
+                </button>
+                <button aria-label="Cart" class="hover:opacity-60 transition-opacity relative" onclick="openModal('Shopping Bag (0 items)')">
+                    <i class="fa-solid fa-bag-shopping text-base"></i>
+                    <span class="absolute -top-1 -right-2 bg-luxuryDark text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-sans">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-luxuryBorder px-6 py-6 space-y-4 shadow-xl">
+            <a href="#collections" class="block text-sm tracking-widest font-medium py-2 border-b border-gray-100">COLLECTIONS</a>
+            <a href="#about" class="block text-sm tracking-widest font-medium py-2 border-b border-gray-100">ABOUT</a>
+            <a href="#journal" class="block text-sm tracking-widest font-medium py-2 border-b border-gray-100">JOURNAL</a>
+            <div class="flex space-x-6 pt-4 text-sm text-luxuryDark">
+                <button class="flex items-center space-x-2" onclick="openModal('Search')"><i class="fa-solid fa-magnifying-glass"></i> <span>Search</span></button>
+                <button class="flex items-center space-x-2" onclick="openModal('Account Portal')"><i class="fa-regular fa-user"></i> <span>Account</span></button>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative bg-[#f4f4f4] py-16 lg:py-24 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="space-y-4 mb-12">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-serif text-luxuryDark tracking-wider">
+                    LUMINA COLLECTION: SCULPTURAL HARMONY
+                </h2>
+                <div class="pt-2">
+                    <a href="#lumina-details" class="inline-block border border-luxuryDark text-luxuryDark px-8 py-3.5 text-xs tracking-[0.2em] uppercase font-medium hover:bg-luxuryDark hover:text-white transition-all-custom shadow-sm">
+                        SHOP THE CONSOLE
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Image Container (Matching image_4.png Console) -->
+            <div class="relative max-w-5xl mx-auto bg-white/40 p-6 sm:p-12 rounded-sm shadow-sm flex items-center justify-center">
+                <img src="image_4.png" alt="Lumina Long Console Table with Walnut Top and Smoke Glass Bases" class="w-full h-auto object-contain max-h-[500px] drop-shadow-xl" onerror="this.src='https://placehold.co/1000x500/f4f4f4/333333?text=Lumina+Console+Table'">
+            </div>
+        </div>
+    </section>
+
+    <section id="collections" class="py-20 lg:py-28 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h3 class="text-2xl lg:text-3xl font-serif tracking-widest text-luxuryDark mb-3">FEATURED DESIGNS</h3>
+            <div class="w-12 h-[1px] bg-luxuryDark mx-auto opacity-40"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start">
+            
+            <!-- Product 1: Lumina Long Console -->
+            <div class="group text-center flex flex-col items-center">
+                <div class="bg-[#f9f9f9] w-full p-8 lg:p-12 flex items-center justify-center mb-6 rounded-sm min-h-[380px] transition-all-custom group-hover:bg-[#f2f2f2]">
+                    <img src="image_4.png" alt="Lumina Console" class="w-full h-auto max-h-[280px] object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x500/f4f4f4/333333?text=Lumina+Console'">
+                </div>
+                <h4 class="font-serif text-sm lg:text-base tracking-widest mb-2">LUMINA LONG CONSOLE TABLE</h4>
+                <p class="font-sans text-sm tracking-wider text-neutral-600 mb-6">$2,900</p>
+                <button onclick="addToBag('Lumina Long Console Table', '$2,900')" class="border border-luxuryDark text-luxuryDark px-7 py-3 text-xs tracking-[0.2em] uppercase font-medium hover:bg-luxuryDark hover:text-white transition-all-custom">
+                    DISCOVER
+                </button>
+            </div>
+
+            <!-- Product 2: Lumina Side Table -->
+            <div class="group text-center flex flex-col items-center">
+                <div class="bg-[#f9f9f9] w-full p-8 lg:p-12 flex items-center justify-center mb-6 rounded-sm min-h-[380px] transition-all-custom group-hover:bg-[#f2f2f2]">
+                    <img src="image_3.png" alt="Lumina Side Table" class="w-full h-auto max-h-[280px] object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x500/f4f4f4/333333?text=Lumina+Side+Table'">
+                </div>
+                <h4 class="font-serif text-sm lg:text-base tracking-widest mb-2">LUMINA MODULAR SIDE TABLE</h4>
+                <p class="font-sans text-sm tracking-wider text-neutral-600 mb-6">$950</p>
+                <button onclick="addToBag('Lumina Modular Side Table', '$950')" class="border border-luxuryDark text-luxuryDark px-7 py-3 text-xs tracking-[0.2em] uppercase font-medium hover:bg-luxuryDark hover:text-white transition-all-custom">
+                    DISCOVER
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-16 px-6 bg-[#f4f4f4]">
+        <div class="max-w-6xl mx-auto bg-white p-8 lg:p-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center shadow-sm">
+            
+            <!-- Planter Image Container (image.png) -->
+            <div class="bg-[#fafafa] p-6 flex items-center justify-center">
+                <img src="image.png" alt="Lumina Botanical Planter" class="w-full h-auto max-h-[360px] object-contain drop-shadow-lg" onerror="this.src='https://placehold.co/600x600/f4f4f4/333333?text=Botanical+Planter'">
+            </div>
+
+            <!-- Content -->
+            <div class="space-y-6 text-center lg:text-left">
+                <h3 class="text-2xl lg:text-3xl font-serif tracking-widest text-luxuryDark">BOTANICAL ELEMENTS</h3>
+                <p class="text-neutral-600 font-light text-sm lg:text-base leading-relaxed">
+                    Designed to bridge organic life with sculptural brutalism. Each glass module creates a micro-habitat for succulents and cascading botanicals, topped with solid American walnut trim.
+                </p>
+                <div class="pt-2">
+                    <button onclick="addToBag('Lumina Botanical Planter', '$1,250')" class="inline-block border border-luxuryDark text-luxuryDark px-8 py-3.5 text-xs tracking-[0.2em] uppercase font-medium hover:bg-luxuryDark hover:text-white transition-all-custom">
+                        SHOP ACCESSORIES
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-luxuryDark text-white py-16 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12 border-b border-neutral-800 pb-12">
+            
+            <!-- Brand Column -->
+            <div class="space-y-4">
+                <h4 class="text-lg font-serif tracking-[0.25em]">AURA ATELIER</h4>
+                <p class="text-xs text-neutral-400 font-light leading-relaxed">
+                    Crafting sculptural furniture and minimalist design objects where transparency meets raw materiality.
+                </p>
+            </div>
+
+            <!-- Navigation Links -->
+            <div>
+                <h5 class="text-xs tracking-[0.2em] font-medium uppercase mb-4 text-neutral-300">EXPLORE</h5>
+                <ul class="space-y-2.5 text-xs text-neutral-400 font-light">
+                    <li><a href="#collections" class="hover:text-white transition-colors">Lumina Collection</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Modular Systems</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Botanical Series</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Custom Commissions</a></li>
+                </ul>
+            </div>
+
+            <!-- Client Care -->
+            <div>
+                <h5 class="text-xs tracking-[0.2em] font-medium uppercase mb-4 text-neutral-300">CLIENT CARE</h5>
+                <ul class="space-y-2.5 text-xs text-neutral-400 font-light">
+                    <li><a href="#" class="hover:text-white transition-colors">Concierge Service</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Shipping & White Glove</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Care Instructions</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Inquiries</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div>
+                <h5 class="text-xs tracking-[0.2em] font-medium uppercase mb-4 text-neutral-300">JOURNAL</h5>
+                <p class="text-xs text-neutral-400 font-light mb-4">Subscribe to receive private viewings and editorial dispatches.</p>
+                <form onsubmit="handleSubscribe(event)" class="flex">
+                    <input type="email" placeholder="Enter your email" required class="bg-neutral-900 border border-neutral-700 text-xs px-3 py-2 text-white focus:outline-none focus:border-white w-full">
+                    <button type="submit" class="bg-white text-luxuryDark px-4 text-xs tracking-widest uppercase font-medium hover:bg-neutral-200 transition-colors">JOIN</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-500 font-light">
+            <p>&copy; 2026 AURA ATELIER. All rights reserved.</p>
+            <div class="flex space-x-6 mt-4 sm:mt-0">
+                <a href="#" class="hover:text-neutral-400 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-neutral-400 transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Drawer / Modal Overlay -->
+    <div id="interactive-modal" class="fixed inset-0 bg-black/60 z-50 hidden backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white max-w-md w-full p-8 relative shadow-2xl rounded-sm">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-luxuryDark text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modal-content" class="text-center space-y-4 pt-2">
+                <!-- Dynamic Content inserted via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Modal Functionality (Replaces alert/confirm)
+        const modal = document.getElementById('interactive-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        function openModal(title, detail = "") {
+            modalContent.innerHTML = `
+                <div class="w-12 h-12 bg-neutral-100 rounded-full flex items-center justify-center mx-auto mb-4 text-luxuryDark">
+                    <i class="fa-solid fa-gem text-lg"></i>
+                </div>
+                <h3 class="font-serif text-lg tracking-wider text-luxuryDark">${title}</h3>
+                <p class="text-xs text-neutral-600 font-light leading-relaxed">${detail || 'Experience uncompromising craftsmanship with our digital concierge service. Sign in to manage your private collections and custom requests.'}</p>
+                <button onclick="closeModal()" class="w-full bg-luxuryDark text-white py-3 text-xs tracking-[0.2em] uppercase mt-4 hover:bg-neutral-800 transition-colors">CLOSE</button>
+            `;
+            modal.classList.remove('hidden');
+        }
+
+        function addToBag(itemTitle, price) {
+            modalContent.innerHTML = `
+                <div class="w-12 h-12 bg-neutral-100 rounded-full flex items-center justify-center mx-auto mb-4 text-luxuryDark">
+                    <i class="fa-solid fa-bag-shopping text-lg"></i>
+                </div>
+                <h3 class="font-serif text-lg tracking-wider text-luxuryDark">ADDED TO BAG</h3>
+                <p class="text-xs text-neutral-600 font-light leading-relaxed">${itemTitle} (${price}) has been added to your shopping bag.</p>
+                <button onclick="closeModal()" class="w-full bg-luxuryDark text-white py-3 text-xs tracking-[0.2em] uppercase mt-4 hover:bg-neutral-800 transition-colors">CONTINUE BROWSING</button>
+            `;
+            modal.classList.remove('hidden');
+        }
+
+        function handleSubscribe(e) {
+            e.preventDefault();
+            modalContent.innerHTML = `
+                <div class="w-12 h-12 bg-neutral-100 rounded-full flex items-center justify-center mx-auto mb-4 text-luxuryDark">
+                    <i class="fa-solid fa-check text-lg"></i>
+                </div>
+                <h3 class="font-serif text-lg tracking-wider text-luxuryDark">WELCOME TO THE JOURNAL</h3>
+                <p class="text-xs text-neutral-600 font-light leading-relaxed">Thank you for subscribing. You have been added to our private atelier dispatches.</p>
+                <button onclick="closeModal()" class="w-full bg-luxuryDark text-white py-3 text-xs tracking-[0.2em] uppercase mt-4 hover:bg-neutral-800 transition-colors">CLOSE</button>
+            `;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+
+        // Close modal on background click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    </script>
+</body>
+</html>
